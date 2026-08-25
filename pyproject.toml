@@ -12,3 +12,6 @@ requires-python = ">=3.10"
 
 [project.scripts]
 forg = "forg.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["forg*"]

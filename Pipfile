@@ -9,6 +9,7 @@ forg = {file = ".", editable = true}
 [dev-packages]
 setuptools = "*"
 wheel = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.14"

@@ -7,6 +7,8 @@ from pathlib import Path
 FILE_ORGANIZATION = ("Documents", "Images", "Audios", "Videos")
 
 def ofile(directory):
+    directory = Path(directory)
+
     if not directory.exists(): raise FileNotFoundError(f"The directory '{directory}' does not exist.")
     if not directory.is_dir(): raise NotADirectoryError(f"'{directory}' is not a valid directory.")
 
@@ -15,16 +17,18 @@ def ofile(directory):
     for f in FILE_ORGANIZATION: 
         (directory/f).mkdir(exist_ok=True)
 
-    for _, _, filenames in dir_contents:
+    for dirpath, _, filenames in dir_contents:
+        current_dir = Path(dirpath)
         for filename in filenames:
+            source_file = current_dir / filename
             if filename.lower().endswith(".txt"):
-                shutil.move((directory/filename), (directory/FILE_ORGANIZATION[0]))
+                shutil.move(source_file, (directory/FILE_ORGANIZATION[0]))
             elif filename.lower().endswith(".jpg"):
-                shutil.move((directory/filename), (directory/FILE_ORGANIZATION[1]))
+                shutil.move(source_file, (directory/FILE_ORGANIZATION[1]))
             elif filename.lower().endswith(".mp3"):
-                shutil.move((directory/filename), (directory/FILE_ORGANIZATION[2]))
+                shutil.move(source_file, (directory/FILE_ORGANIZATION[2]))
             elif filename.lower().endswith(".mp4"):
-                shutil.move((directory/filename), (directory/FILE_ORGANIZATION[3]))
+                shutil.move(source_file, (directory/FILE_ORGANIZATION[3]))
 
 def main():
     parser = argparse.ArgumentParser(description="File organizer CLI tool", usage="forg command")
@@ -39,7 +43,7 @@ def main():
     if args.command == "run":
         if args.organize == "file":
             try: 
-                ofile(Path(args.directory))
+                ofile(args.directory)
             except (FileNotFoundError, NotADirectoryError) as e: 
                 print(f"Error: {e}", file=sys.stderr)
                 sys.exit(2)
