@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 forg = {file = ".", editable = true}
+requests = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 setuptools = "*"

@@ -1,0 +1,270 @@
+{
+  "Text": [
+    ".DOC",
+    ".DOCX",
+    ".EML",
+    ".MSG",
+    ".ODT",
+    ".PAGES",
+    ".RTF",
+    ".TEX",
+    ".TXT",
+    ".WPD"
+  ],
+  "Data": [
+    ".AAE",
+    ".BIN",
+    ".CSV",
+    ".DAT",
+    ".KEY",
+    ".LOG",
+    ".MPP",
+    ".OBB",
+    ".PPT",
+    ".PPTX",
+    ".RPT",
+    ".TAR",
+    ".VCF",
+    ".XML"
+  ],
+  "Audio": [
+    ".AIF",
+    ".FLAC",
+    ".M3U",
+    ".M4A",
+    ".MID",
+    ".MP3",
+    ".OGG",
+    ".WAV",
+    ".WMA"
+  ],
+  "Video": [
+    ".3GP",
+    ".ASF",
+    ".AVI",
+    ".FLV",
+    ".M4V",
+    ".MOV",
+    ".MP4",
+    ".MPG",
+    ".SWF",
+    ".TS",
+    ".VOB",
+    ".WMV"
+  ],
+  "3D Image": [
+    ".3DM",
+    ".3DS",
+    ".BLEND",
+    ".DAE",
+    ".FBX",
+    ".MAX",
+    ".OBJ"
+  ],
+  "Raster Image": [
+    ".BMP",
+    ".DCM",
+    ".DDS",
+    ".DJVU",
+    ".GIF",
+    ".HEIC",
+    ".JPG",
+    ".PNG",
+    ".PSD",
+    ".TGA",
+    ".TIF"
+  ],
+  "Vector Image": [
+    ".AI",
+    ".CDR",
+    ".EMF",
+    ".EPS",
+    ".PS",
+    ".SKETCH",
+    ".SVG",
+    ".VSDX"
+  ],
+  "Page Layout": [
+    ".INDD",
+    ".OXPS",
+    ".PDF",
+    ".PMD",
+    ".PUB",
+    ".QXP",
+    ".XPS"
+  ],
+  "Spreadsheet": [
+    ".NUMBERS",
+    ".ODS",
+    ".XLR",
+    ".XLS",
+    ".XLSX"
+  ],
+  "Database": [
+    ".ACCDB",
+    ".CRYPT14",
+    ".DB",
+    ".MDB",
+    ".ODB",
+    ".PDB",
+    ".SQL",
+    ".SQLITE"
+  ],
+  "Executable": [
+    ".APK",
+    ".APP",
+    ".BAT",
+    ".BIN",
+    ".CMD",
+    ".COM",
+    ".EXE",
+    ".IPA",
+    ".JAR",
+    ".RUN",
+    ".SH"
+  ],
+  "Game": [
+    ".BIN",
+    ".DEM",
+    ".GAM",
+    ".GBA",
+    ".NES",
+    ".PAK",
+    ".PKG",
+    ".ROM",
+    ".SAV",
+    ".SAV"
+  ],
+  "CAD": [
+    ".DGN",
+    ".DWG",
+    ".DXF",
+    ".STEP",
+    ".STL",
+    ".STP"
+  ],
+  "GIS": [
+    ".GPX",
+    ".KML",
+    ".KMZ",
+    ".OSM"
+  ],
+  "Web": [
+    ".ASP",
+    ".ASPX",
+    ".CER",
+    ".CFM",
+    ".CSR",
+    ".CSS",
+    ".HTML",
+    ".JS",
+    ".JSON",
+    ".JSP",
+    ".PHP",
+    ".XHTML"
+  ],
+  "Plugin": [
+    ".CRX",
+    ".ECF",
+    ".PLUGIN",
+    ".SAFARIEXTZ",
+    ".XPI"
+  ],
+  "Font": [
+    ".FNT",
+    ".OTF",
+    ".TTF",
+    ".WOFF",
+    ".WOFF2"
+  ],
+  "System": [
+    ".ANI",
+    ".CAB",
+    ".CPL",
+    ".CUR",
+    ".DESKTHEMEPACK",
+    ".DLL",
+    ".DMP",
+    ".DRV",
+    ".ICNS",
+    ".ICO",
+    ".LNK",
+    ".REG",
+    ".SYS"
+  ],
+  "Settings": [
+    ".CFG",
+    ".INI",
+    ".PKG",
+    ".SET"
+  ],
+  "Encoded": [
+    ".ASC",
+    ".BIN",
+    ".ENC",
+    ".MIM",
+    ".UUE"
+  ],
+  "Compressed": [
+    ".7Z",
+    ".CBR",
+    ".DEB",
+    ".GZ",
+    ".PKG",
+    ".RAR",
+    ".RPM",
+    ".TAR.GZ",
+    ".XAPK",
+    ".ZIP",
+    ".ZIPX"
+  ],
+  "Disk Image": [
+    ".BIN",
+    ".DMG",
+    ".IMG",
+    ".ISO",
+    ".MDF",
+    ".ROM",
+    ".VCD"
+  ],
+  "Developer": [
+    ".APPX",
+    ".C",
+    ".CLASS",
+    ".CONFIG",
+    ".CPP",
+    ".CS",
+    ".H",
+    ".JAVA",
+    ".KT",
+    ".LUA",
+    ".M",
+    ".MD",
+    ".PL",
+    ".PY",
+    ".SB3",
+    ".SLN",
+    ".SWIFT",
+    ".UNITY",
+    ".VB",
+    ".VCXPROJ",
+    ".XCODEPROJ",
+    ".YML"
+  ],
+  "Backup": [
+    ".ABK",
+    ".ARC",
+    ".BAK",
+    ".TMP"
+  ],
+  "Misc": [
+    ".CRDOWNLOAD",
+    ".ICS",
+    ".MSI",
+    ".NOMEDIA",
+    ".PART",
+    ".PKPASS",
+    ".SRT",
+    ".TORRENT"
+  ]
+}
