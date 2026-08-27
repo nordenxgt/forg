@@ -3,7 +3,10 @@ import sys
 import os
 import shutil
 import json
+import platform
+import subprocess
 from pathlib import Path
+from datetime import datetime
 
 def ofile(directory: Path) -> None:
     if not directory.exists(): raise FileNotFoundError(f"The directory '{directory}' does not exist.")
@@ -19,6 +22,67 @@ def ofile(directory: Path) -> None:
             if extensions.get(ext):
                 (directory/extensions[ext]).mkdir(exist_ok=True)
                 shutil.move(current_dir/filename, directory/extensions[ext])
+
+def get_linux_creation_date(filepath):
+    result = subprocess.run(["stat", "-c", "%W", filepath], capture_output=True, text=True, check=True)
+    result = result.stdout.strip()
+    if result in ["0", "-"]:
+        raise ValueError("Birth time/Creation date not supported by this filesystem.")
+    result = float(result)
+    return result
+
+def odate(directory: Path) -> None:
+    for dirpath, _, filenames in os.walk(directory):
+        current_dir = Path(dirpath)
+        for filename in filenames:
+            created_time = None
+            if platform.system() == "Windows":
+                created_time = (current_dir/filename).stat().st_ctime
+            if platform.system() == "Darwin":
+                created_time = (current_dir/filename).stat().st_birthtime
+            if platform.system() == "Linux":
+                created_time = get_linux_creation_date(Path(current_dir/filename))
+            created_date = datetime.fromtimestamp(created_time).date()
+            (directory/str(created_date)).mkdir(exist_ok=True)
+            shutil.move(current_dir/filename, directory/str(created_date))
+
+def oname(directory: Path) -> None:
+    for dirpath, _, filenames in os.walk(directory):
+        current_dir = Path(dirpath)
+        for filename in filenames:
+            file_ord = ord(filename[0].upper())
+            if 65 <= file_ord <= 75:
+                d = f"{chr(65)}-{chr(75)}"
+                d.mkdir(exist_ok=True)
+                shutil.move(current_dir/filename, directory/d)
+            elif 76 <= file_ord <= 85:
+                d = f"{chr(76)}-{chr(85)}"
+                d.mkdir(exist_ok=True)
+                shutil.move(current_dir/filename, directory/d)
+            elif 86 <= file_ord <= 90:
+                d = f"{chr(86)}-{chr(90)}"
+                d.mkdir(exist_ok=True)
+                shutil.move(current_dir/filename, directory/d)
+
+def osize(directory: Path) -> None:
+    size = 0
+    for dirpath, _, filenames in os.walk(directory):
+        current_dir = Path(dirpath)
+        for filename in filenames:
+            size += Path(current_dir/filename).stat().st_size
+    parts = size/3
+    for dirpath, _, filenames in os.walk(directory):
+        current_dir = Path(dirpath)
+        for filename in filenames:
+            if 0 <= (current_dir/filename).stat().st_size <= parts:
+                Path(directory/"Small").mkdir(exist_ok=True)
+                shutil.move(current_dir/filename, directory/"Small")
+            elif parts+1 <= (current_dir/filename).stat().st_size <= 2*parts:
+                Path(directory/"Medium").mkdir(exist_ok=True)
+                shutil.move(current_dir/filename, directory/"Medium")
+            elif 2*parts+1 <= (current_dir/filename).stat().st_size <= 3*parts:
+                Path(directory/"Large").mkdir(exist_ok=True)
+                shutil.move(current_dir/filename, directory/"Large")
 
 def main():
     parser = argparse.ArgumentParser(description="File organizer CLI tool", usage="forg command")
@@ -36,12 +100,12 @@ def main():
             except (FileNotFoundError, NotADirectoryError) as e: 
                 print(f"Error: {e}", file=sys.stderr)
                 sys.exit(2)
-        elif args.organize == "name":
-            pass
         elif args.organize == "date":
-            pass
+            odate(Path(args.directory))
+        elif args.organize == "name":
+            oname(Path(args.directory))
         elif args.organize == "size":
-            pass
+            osize(Path(args.directory))
 
 if __name__ == "__main__":
     main()
