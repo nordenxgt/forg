@@ -16,7 +16,7 @@ def ofile(directory: Path) -> None:
         current_dir = Path(dirpath)
         for filename in filenames:
             ext = Path(filename.lower()).suffix
-            if extensions[ext]:
+            if extensions.get(ext):
                 (directory/extensions[ext]).mkdir(exist_ok=True)
                 shutil.move(current_dir/filename, directory/extensions[ext])
 
