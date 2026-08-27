@@ -1,6 +1,7 @@
 import json
 import bs4
 import requests
+import sys
 
 URL = "https://fileinfo.com/filetypes/common"
 
@@ -8,9 +9,9 @@ def main():
     try:
         response = requests.get(URL)
         response.raise_for_status()
-    except requests.RequestException as e:
-        print(e)
-        raise
+    except requests.RequestException as exc:
+        print(exc)
+        sys.exit(2)
 
     soup = bs4.BeautifulSoup(response.text, "html.parser")
     heading_elements = soup.select("h2")
