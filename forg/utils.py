@@ -25,6 +25,6 @@ def file_ord(filename: str) -> str:
 
 def file_size(filename: Path, pt_size: float) -> str:
     f_size = filename.stat().st_size 
-    if f_size <= pt_size:      return "Small"
-    if f_size <= 2*pt_size:    return "Medium"
-    if f_size <= 3*pt_size:    return "Large"
+    if f_size <= pt_size:       return "Small"
+    elif f_size <= 2*pt_size:   return "Medium"
+    else:                       return "Large"
