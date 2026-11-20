@@ -45,7 +45,7 @@ Install both runtime dependencies and development tools in editable mode (`e .`)
 pipenv install --dev -e .
 ```
 
-### 4. Usage
+## Usage
 
 1. Activate the virtual environment:
 
